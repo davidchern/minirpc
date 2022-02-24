@@ -1,8 +1,10 @@
 # minirpc
 
-A minimal and efficient Json RPC library for Python.
+A minimal and efficient JsonRPC library for Python.
 
-The implementation is based on [rpconnect](https://github.com/MaineKuehn/rpconnect). In this fork, I have made some improvements, such as similar usage like `xmlrpc` in Python standard libray, and fixed many bugs. Also, to make the behavior similar to `xmlrpc`, I have changed the running mode to calling method directly, but not via a forked process.
+The implementation is based on [rpconnect](https://github.com/MaineKuehn/rpconnect). In this fork, I have made some improvements, such as similar usage like `xmlrpc` in Python standard libray (see usage below), and fixed many bugs.
+
+Also, to make the behavior similar to `xmlrpc`, I have changed the running mode to calling functions directly, but not by forking a process or spawning a thread.
 
 ## Dependency
 
@@ -20,7 +22,9 @@ def echo(info):
 
 server = RpcServer("localhost", 8800)
 server.register_function(echo, "echo")
+# or server.register(echo, "echo")
 server.serve_forever()
+# or server.run()
 ```
 
 ### client side
