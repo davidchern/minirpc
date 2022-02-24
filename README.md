@@ -1,4 +1,4 @@
-# minrpc
+# minirpc
 
 A minimal and efficient Json RPC library for Python.
 
