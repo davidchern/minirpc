@@ -12,7 +12,7 @@ Just standard library of Python.
 
 ### server side
 
-``python
+```python
 from minirpc import RpcServer
 
 def echo(info):
@@ -21,11 +21,11 @@ def echo(info):
 server = RpcServer("localhost", 8800)
 server.register_function(echo, "echo")
 server.serve_forever()
-``
+```
 
 ### client side
 
-```
+```python
 from minirpc import RpcClient
 
 client = RpcClient("localhost", 8800)
