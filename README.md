@@ -17,14 +17,19 @@ Just standard library of Python.
 ```python
 from minirpc import RpcServer
 
-def echo(info):
+def _echo(info):
     return f'hello {info}'
 
 server = RpcServer("localhost", 8800)
-server.register_function(echo, "echo")
-# or server.register(echo, "echo")
+server.register_function(_echo, "echo")
 server.serve_forever()
-# or server.run()
+```
+or
+
+```python
+with RpcServer("localhost", 8800) as server:
+    server.register(_echo, "echo")
+    server.run()
 ```
 
 ### client side
